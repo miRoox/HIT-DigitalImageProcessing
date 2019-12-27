@@ -1,0 +1,743 @@
+Notebook[
+ {
+  Cell[
+   CellGroupData[
+    {
+     Cell["\:6b63\:4ea4\:53d8\:6362", "Title"],
+     Cell[
+      "\:83b7\:53d6\:6444\:50cf\:5934\:62cd\:6444\:56fe\:50cf\:ff0c\:5e76\:8f6c\:6362\:4e3a\:6307\:5b9a\:5927\:5c0f\:7684\:7070\:5ea6\:56fe\:50cf - \:56fe1(a)",
+      "Text"
+     ],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "img",
+         "=",
+         RowBox[
+          {
+           RowBox[{"CurrentImage", "[", "]"}],
+           "~",
+           "ImageResize",
+           "~",
+           RowBox[{"{", RowBox[{"256", ",", "256"}], "}"}],
+           "~",
+           "ColorConvert",
+           "~",
+           "\"Grayscale\""
+          }
+         ]
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell[
+      "\:5149\:5b66\:5085\:91cc\:53f6\:53d8\:6362 - \:4e2d\:5fc3\:4e3a\:4f4e\:9891 - \:76f8\:5f53\:4e8e\:7ec4\:5408\:4e86MATLAB\:4e2d\:7684fft\:548cfftshift",
+      "Text"
+     ],
+     Cell[
+      BoxData[
+       {
+        RowBox[
+         {
+          RowBox[
+           {
+            "opticalFourier",
+            "[",
+            RowBox[{"data_", "?", "MatrixQ"}],
+            "]"
+           }
+          ],
+          ":=",
+          RowBox[
+           {
+            "RotateLeft",
+            "[",
+            RowBox[
+             {
+              RowBox[{"Fourier", "[", "data", "]"}],
+              ",",
+              RowBox[
+               {RowBox[{"Dimensions", "[", "data", "]"}], "/", "2"}
+              ]
+             }
+            ],
+            "]"
+           }
+          ]
+         }
+        ],
+        "\n",
+        RowBox[
+         {
+          RowBox[
+           {
+            "opticalInverseFourier",
+            "[",
+            RowBox[{"data_", "?", "MatrixQ"}],
+            "]"
+           }
+          ],
+          ":=",
+          RowBox[
+           {
+            "Chop",
+            "@",
+            RowBox[
+             {
+              "InverseFourier",
+              "[",
+              RowBox[
+               {
+                "RotateRight",
+                "[",
+                RowBox[
+                 {
+                  "data",
+                  ",",
+                  RowBox[
+                   {RowBox[{"Dimensions", "[", "data", "]"}], "/", "2"}
+                  ]
+                 }
+                ],
+                "]"
+               }
+              ],
+              "]"
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "Input"
+     ],
+     Cell["\:8ba1\:7b97\:9891\:8c31", "Text"],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         RowBox[
+          {
+           "freq",
+           "=",
+           RowBox[
+            {
+             "opticalFourier",
+             "@",
+             RowBox[{"ImageData", "[", "img", "]"}]
+            }
+           ]
+          }
+         ],
+         ";"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell["\:56fe1(b)", "Text"],
+     Cell[
+      BoxData[
+       RowBox[{"Image", "@", RowBox[{"Abs", "@", "freq"}]}]
+      ],
+      "Input"
+     ],
+     Cell["\:56fe2(a)", "Text"],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "ArrayPlot",
+         "[",
+         RowBox[
+          {
+           RowBox[{"Abs", "@", "freq"}],
+           ",",
+           RowBox[{"PlotLegends", "\[Rule]", "Automatic"}],
+           ",",
+           RowBox[
+            {
+             "PlotRange",
+             "\[Rule]",
+             RowBox[{"{", RowBox[{"0", ",", "1"}], "}"}]
+            }
+           ],
+           ",",
+           RowBox[{"PlotTheme", "\[Rule]", "\"Monochrome\""}],
+           ",",
+           RowBox[{"ClippingStyle", "\[Rule]", "Black"}],
+           ",",
+           RowBox[{"PixelConstrained", "\[Rule]", "True"}]
+          }
+         ],
+         "]"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell["\:56fe2(b)", "Text"],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "ListPlot3D",
+         "[",
+         RowBox[
+          {
+           RowBox[{"Abs", "@", "freq"}],
+           ",",
+           RowBox[
+            {
+             "PlotRange",
+             "\[Rule]",
+             RowBox[{"{", RowBox[{"0", ",", "1"}], "}"}]
+            }
+           ],
+           ",",
+           RowBox[{"PlotTheme", "\[Rule]", "\"Monochrome\""}]
+          }
+         ],
+         "]"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell["\:56fe2(c)", "Text"],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "ArrayPlot",
+         "[",
+         RowBox[
+          {
+           RowBox[{"Arg", "@", "freq"}],
+           ",",
+           RowBox[
+            {
+             "PlotRange",
+             "\[Rule]",
+             RowBox[
+              {"{", RowBox[{RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}
+             ]
+            }
+           ],
+           ",",
+           RowBox[{"PlotLegends", "\[Rule]", "Automatic"}],
+           ",",
+           RowBox[{"PlotTheme", "\[Rule]", "\"Monochrome\""}],
+           ",",
+           RowBox[{"PixelConstrained", "\[Rule]", "True"}]
+          }
+         ],
+         "]"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell["\:56fe2(d)", "Text"],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "ListPlot3D",
+         "[",
+         RowBox[
+          {
+           RowBox[{"Arg", "@", "freq"}],
+           ",",
+           RowBox[{"PlotRange", "\[Rule]", "Full"}],
+           ",",
+           RowBox[{"PlotTheme", "\[Rule]", "\"Monochrome\""}]
+          }
+         ],
+         "]"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell[
+      " ",
+      "Text",
+      Editable -> False,
+      Selectable -> False,
+      CellFrame -> {{0, 0}, {0, 0.5}},
+      ShowCellBracket -> False,
+      CellMargins -> {{0, 0}, {1, 1}},
+      CellElementSpacings -> {"CellMinHeight" -> 1},
+      CellFrameMargins -> 0,
+      CellFrameColor -> RGBColor[0, 0, 1],
+      CellSize -> {Inherited, 3}
+     ],
+     Cell[
+      "\:79bb\:6563\:4f59\:5f26\:9006\:53d8\:6362\:5c01\:88c5",
+      "Text"
+     ],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         RowBox[
+          {
+           "InverseFourierDCT",
+           "=",
+           RowBox[
+            {
+             RowBox[{"FourierDCT", "[", RowBox[{"#", ",", "3"}], "]"}],
+             "&"
+            }
+           ]
+          }
+         ],
+         ";"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell[
+      "\:6784\:9020\:5206\:5757\:77e9\:9635\:64cd\:4f5c\:ff0c\:7c7b\:4f3cMATLAB\:4e2d\:7684blkproc",
+      "Text"
+     ],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         RowBox[
+          {
+           "matrixBlockMap",
+           "=",
+           RowBox[{"ArrayFlatten", "@*", "BlockMap"}]
+          }
+         ],
+         ";"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell["\:5206\:5757\:8ba1\:7b97DCT", "Text"],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         RowBox[
+          {
+           "dctspec",
+           "=",
+           RowBox[
+            {
+             "matrixBlockMap",
+             "[",
+             RowBox[
+              {
+               "FourierDCT",
+               ",",
+               RowBox[{"ImageData", "@", "img"}],
+               ",",
+               RowBox[{"{", RowBox[{"32", ",", "32"}], "}"}]
+              }
+             ],
+             "]"
+            }
+           ]
+          }
+         ],
+         ";"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell["\:56fe3(a)", "Text"],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "ArrayPlot",
+         "[",
+         RowBox[
+          {
+           "dctspec",
+           ",",
+           RowBox[
+            {
+             "PlotRange",
+             "\[Rule]",
+             RowBox[{"{", RowBox[{"0", ",", "1"}], "}"}]
+            }
+           ],
+           ",",
+           RowBox[
+            {
+             "ClippingStyle",
+             "\[Rule]",
+             RowBox[{"{", RowBox[{"White", ",", "Black"}], "}"}]
+            }
+           ],
+           ",",
+           RowBox[{"PlotLegends", "\[Rule]", "Automatic"}],
+           ",",
+           RowBox[{"PixelConstrained", "\[Rule]", "True"}]
+          }
+         ],
+         "]"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell["\:56fe3(b)", "Text"],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "ListPlot3D",
+         "[",
+         RowBox[
+          {
+           "dctspec",
+           ",",
+           RowBox[{"PlotRange", "\[Rule]", "Full"}],
+           ",",
+           RowBox[{"PlotTheme", "\[Rule]", "\"Monochrome\""}]
+          }
+         ],
+         "]"
+        }
+       ]
+      ],
+      "Input"
+     ],
+     Cell[
+      "\:4f4e\:901a\:6ee4\:6ce2\:ff08\:622a\:6b62\:9891\:7387\:4e3a8\:500d\:9891\:7387\:5206\:8fa8\:7387\:ff09 - \:56fe4(a)",
+      "Text"
+     ],
+     Cell[
+      BoxData[
+       {
+        RowBox[
+         {
+          RowBox[
+           {
+            "lowpass",
+            "=",
+            RowBox[
+             {
+              "matrixBlockMap",
+              "[",
+              RowBox[
+               {
+                RowBox[
+                 {
+                  RowBox[
+                   {
+                    "#",
+                    "*",
+                    RowBox[
+                     {
+                      "SparseArray",
+                      "[",
+                      RowBox[
+                       {
+                        RowBox[
+                         {
+                          RowBox[
+                           {
+                            "{",
+                            RowBox[
+                             {
+                              RowBox[{"i_", "/;", RowBox[{"i", "\[LessEqual]", "8"}]}],
+                              ",",
+                              RowBox[{"j_", "/;", RowBox[{"j", "\[LessEqual]", "8"}]}]
+                             }
+                            ],
+                            "}"
+                           }
+                          ],
+                          "\[Rule]",
+                          "1"
+                         }
+                        ],
+                        ",",
+                        RowBox[{"Dimensions", "[", "#", "]"}]
+                       }
+                      ],
+                      "]"
+                     }
+                    ]
+                   }
+                  ],
+                  "&"
+                 }
+                ],
+                ",",
+                "dctspec",
+                ",",
+                RowBox[{"{", RowBox[{"32", ",", "32"}], "}"}]
+               }
+              ],
+              "]"
+             }
+            ]
+           }
+          ],
+          ";"
+         }
+        ],
+        "\[IndentingNewLine]",
+        RowBox[
+         {
+          "Image",
+          "@",
+          RowBox[
+           {
+            "matrixBlockMap",
+            "[",
+            RowBox[
+             {
+              "InverseFourierDCT",
+              ",",
+              "lowpass",
+              ",",
+              RowBox[{"{", RowBox[{"32", ",", "32"}], "}"}]
+             }
+            ],
+            "]"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "Input"
+     ],
+     Cell[
+      "\:9ad8\:901a\:6ee4\:6ce2\:ff08\:622a\:6b62\:9891\:7387\:4e3a4\:500d\:9891\:7387\:5206\:8fa8\:7387\:ff09 - \:56fe4(b)",
+      "Text"
+     ],
+     Cell[
+      BoxData[
+       {
+        RowBox[
+         {
+          RowBox[
+           {
+            "highpass",
+            "=",
+            RowBox[
+             {
+              "matrixBlockMap",
+              "[",
+              RowBox[
+               {
+                RowBox[
+                 {
+                  RowBox[
+                   {
+                    "#",
+                    "*",
+                    RowBox[
+                     {
+                      "SparseArray",
+                      "[",
+                      RowBox[
+                       {
+                        RowBox[
+                         {
+                          RowBox[
+                           {
+                            "{",
+                            RowBox[
+                             {
+                              RowBox[{"i_", "/;", RowBox[{"i", ">", "4"}]}],
+                              ",",
+                              RowBox[{"j_", "/;", RowBox[{"j", ">", "4"}]}]
+                             }
+                            ],
+                            "}"
+                           }
+                          ],
+                          "\[Rule]",
+                          "1"
+                         }
+                        ],
+                        ",",
+                        RowBox[{"Dimensions", "[", "#", "]"}]
+                       }
+                      ],
+                      "]"
+                     }
+                    ]
+                   }
+                  ],
+                  "&"
+                 }
+                ],
+                ",",
+                "dctspec",
+                ",",
+                RowBox[{"{", RowBox[{"32", ",", "32"}], "}"}]
+               }
+              ],
+              "]"
+             }
+            ]
+           }
+          ],
+          ";"
+         }
+        ],
+        "\n",
+        RowBox[
+         {
+          "Image",
+          "@",
+          RowBox[
+           {
+            "matrixBlockMap",
+            "[",
+            RowBox[
+             {
+              "InverseFourierDCT",
+              ",",
+              "highpass",
+              ",",
+              RowBox[{"{", RowBox[{"32", ",", "32"}], "}"}]
+             }
+            ],
+            "]"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "Input"
+     ]
+    },
+    Open
+   ]
+  ]
+ },
+ InputAliases -> {
+  "rg" -> "\:7984",
+  "notation" -> RowBox[
+   {
+    "Notation",
+    "[",
+    RowBox[
+     {
+      TemplateBox[
+       {"\[SelectionPlaceholder]"},
+       "NotationTemplateTag"
+      ],
+      " ",
+      "\[DoubleLongLeftRightArrow]",
+      " ",
+      TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]
+     }
+    ],
+    "]"
+   }
+  ],
+  "notation>" -> RowBox[
+   {
+    "Notation",
+    "[",
+    RowBox[
+     {
+      TemplateBox[
+       {"\[SelectionPlaceholder]"},
+       "NotationTemplateTag"
+      ],
+      " ",
+      "\[DoubleLongRightArrow]",
+      " ",
+      TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]
+     }
+    ],
+    "]"
+   }
+  ],
+  "notation<" -> RowBox[
+   {
+    "Notation",
+    "[",
+    RowBox[
+     {
+      TemplateBox[
+       {"\[SelectionPlaceholder]"},
+       "NotationTemplateTag"
+      ],
+      " ",
+      "\[DoubleLongLeftArrow]",
+      " ",
+      TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]
+     }
+    ],
+    "]"
+   }
+  ],
+  "symb" -> RowBox[
+   {
+    "Symbolize",
+    "[",
+    TemplateBox[
+     {"\[SelectionPlaceholder]"},
+     "NotationTemplateTag"
+    ],
+    "]"
+   }
+  ],
+  "infixnotation" -> RowBox[
+   {
+    "InfixNotation",
+    "[",
+    RowBox[
+     {
+      TemplateBox[
+       {"\[SelectionPlaceholder]"},
+       "NotationTemplateTag"
+      ],
+      ",",
+      "\[Placeholder]"
+     }
+    ],
+    "]"
+   }
+  ],
+  "addia" -> RowBox[
+   {
+    "AddInputAlias",
+    "[",
+    RowBox[
+     {
+      "\"\[SelectionPlaceholder]\"",
+      "\[Rule]",
+      TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]
+     }
+    ],
+    "]"
+   }
+  ],
+  "pattwraper" -> TemplateBox[
+   {"\[SelectionPlaceholder]"},
+   "NotationPatternTag"
+  ],
+  "madeboxeswraper" -> TemplateBox[
+   {"\[SelectionPlaceholder]"},
+   "NotationMadeBoxesTag"
+  ],
+  "cf" -> SubscriptBox["&", "\[Placeholder]"]
+ },
+ StyleDefinitions -> "Default.nb"
+]
