@@ -1,0 +1,687 @@
+Notebook[
+ {
+  Cell[
+   CellGroupData[
+    {
+     Cell[
+      "\:751f\:6210\:4e00\:5f20\:7b80\:5355\:7684\:6d4b\:8bd5\:56fe\:50cf",
+      "Text",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10000.},
+      FontFamily -> "\:5b8b\:4f53"
+     ],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "img",
+         "=",
+         RowBox[
+          {
+           "Image",
+           "[",
+           RowBox[
+            {
+             RowBox[
+              {
+               "(",
+               "\[NoBreak]",
+               GridBox[
+                {
+                 {"1", "0", "0", "1"},
+                 {"0", "0", "0", "0"},
+                 {"1", "0", "0", "0"},
+                 {"0", "0", "0", "1"}
+                }
+               ],
+               "\[NoBreak]",
+               ")"
+              }
+             ],
+             ",",
+             RowBox[{"Magnification", "\[Rule]", "5"}]
+            }
+           ],
+           "]"
+          }
+         ]
+        }
+       ]
+      ],
+      "Input",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10000.},
+      CellLabel -> "In[1]:="
+     ]
+    },
+    Open
+   ]
+  ],
+  Cell[
+   CellGroupData[
+    {
+     Cell[
+      TextData[
+       {
+        "\:6839\:636e",
+        ButtonBox[
+         "\:6587\:6863",
+         BaseStyle -> "Hyperlink",
+         ButtonData -> {
+          URL[
+           "https://reference.wolfram.com/language/ref/Padding.html"
+          ],
+          None
+         },
+         ButtonNote -> "https://reference.wolfram.com/language/ref/Padding.html"
+        ],
+        "\:ff0c",
+        StyleBox["Mathematica", FontFamily -> "Source Sans Pro"],
+        "\:5185\:7f6e\:7684\:8fb9\:754c\:586b\:5145\:7b56\:7565\:4e3b\:8981\:6709\:ff1a"
+       }
+      ],
+      "Text",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10001.},
+      FontFamily -> "\:5b8b\:4f53"
+     ],
+     Cell[
+      BoxData[
+       GridBox[
+        {
+         {
+          StyleBox["val", "TI"],
+          Cell[
+           TextData[
+            {
+             "\:7528\:56fa\:5b9a\:503c ",
+             Cell[
+              BoxData[StyleBox["val", "TI"]],
+              "InlineFormula",
+              FontFamily -> "Source Sans Pro"
+             ],
+             " \:586b\:5145"
+            }
+           ],
+           "TableText"
+          ]
+         },
+         {
+          "\"Fixed\"",
+          Cell[
+           "\:91cd\:590d\:8fb9\:754c\:5904\:7684\:5143\:7d20",
+           "TableText"
+          ]
+         },
+         {
+          "\"Periodic\"",
+          Cell[
+           "\:5faa\:73af\:4f7f\:7528\:6574\:4e2a\:6570\:7ec4",
+           "TableText"
+          ]
+         },
+         {
+          "\"Reflected\"",
+          Cell[
+           "\:8fb9\:754c\:4e0a\:6570\:7ec4\:7684\:6620\:5c04",
+           "TableText"
+          ]
+         },
+         {
+          "\"Reversed\"",
+          Cell[
+           "\:53cd\:5411\:4f7f\:7528\:6574\:4e2a\:6570\:7ec4",
+           "TableText"
+          ]
+         }
+        }
+       ]
+      ],
+      "Text",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10001.},
+      GridBoxOptions -> {
+       GridBoxBackground -> {
+        "Columns" -> {{None}},
+        "ColumnsIndexed" -> { },
+        "Rows" -> {None, None, None, None, {None}},
+        "RowsIndexed" -> { }
+       },
+       GridBoxDividers -> {"Rows" -> {{True, True, True, True, True, True}}}
+      },
+      CellID -> 186025787
+     ],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "paddings",
+         "=",
+         RowBox[
+          {
+           "{",
+           RowBox[
+            {
+             "Gray",
+             ",",
+             "Black",
+             ",",
+             "\"Fixed\"",
+             ",",
+             "\"Periodic\"",
+             ",",
+             "\"Reflected\"",
+             ",",
+             "\"Reversed\""
+            }
+           ],
+           "}"
+          }
+         ]
+        }
+       ]
+      ],
+      "Input",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10001.},
+      CellLabel -> "In[2]:="
+     ]
+    },
+    Open
+   ]
+  ],
+  Cell[
+   CellGroupData[
+    {
+     Cell[
+      TextData[
+       {
+        "\:5229\:7528",
+        StyleBox[
+         ButtonBox[
+          "ImagePad",
+          BaseStyle -> "Hyperlink",
+          ButtonData -> {
+           URL[
+            "https://reference.wolfram.com/language/ref/ImagePad.html"
+           ],
+           None
+          },
+          ButtonNote -> "https://reference.wolfram.com/language/ref/ImagePad.html"
+         ],
+         FontFamily -> "Source Code Pro"
+        ],
+        "\:53ef\:4ee5\:76f4\:89c2\:5730\:770b\:51fa\:51e0\:79cd\:586b\:5145\:7b56\:7565\:7684\:5411\:5916\:586b\:5145\:6548\:679c\:ff1a"
+       }
+      ],
+      "Text",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10000.},
+      FontFamily -> "\:5b8b\:4f53"
+     ],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "With",
+         "[",
+         RowBox[
+          {
+           RowBox[
+            {
+             "{",
+             RowBox[
+              {
+               "margins",
+               "=",
+               RowBox[{"Range", "[", RowBox[{"0", ",", "4"}], "]"}]
+              }
+             ],
+             "}"
+            }
+           ],
+           ",",
+           "\[IndentingNewLine]",
+           RowBox[
+            {
+             "Labeled",
+             "[",
+             "\[IndentingNewLine]",
+             RowBox[
+              {
+               RowBox[
+                {
+                 "TableForm",
+                 "[",
+                 "\[IndentingNewLine]",
+                 RowBox[
+                  {
+                   RowBox[
+                    {
+                     "Table",
+                     "[",
+                     RowBox[
+                      {
+                       RowBox[
+                        {
+                         "ImagePad",
+                         "[",
+                         RowBox[{"img", ",", "margin", ",", "pad"}],
+                         "]"
+                        }
+                       ],
+                       ",",
+                       RowBox[{"{", RowBox[{"margin", ",", "margins"}], "}"}],
+                       ",",
+                       RowBox[{"{", RowBox[{"pad", ",", "paddings"}], "}"}]
+                      }
+                     ],
+                     "]"
+                    }
+                   ],
+                   ",",
+                   "\[IndentingNewLine]",
+                   RowBox[
+                    {
+                     "TableHeadings",
+                     "\[Rule]",
+                     RowBox[{"{", RowBox[{"margins", ",", "paddings"}], "}"}]
+                    }
+                   ],
+                   ",",
+                   RowBox[{"TableAlignments", "\[Rule]", "Center"}]
+                  }
+                 ],
+                 "\[IndentingNewLine]",
+                 "]"
+                }
+               ],
+               ",",
+               "\[IndentingNewLine]",
+               "\"\:88681 \:5411\:5916\:586b\:5145\:6548\:679c\:5bf9\:6bd4\"",
+               ",",
+               "Top"
+              }
+             ],
+             "\[IndentingNewLine]",
+             "]"
+            }
+           ]
+          }
+         ],
+         "\[IndentingNewLine]",
+         "]"
+        }
+       ]
+      ],
+      "Input",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10000.},
+      CellLabel -> "In[3]:="
+     ],
+     Cell[
+      TextData[
+       {
+        "\:4ece\:88681\:53ef\:4ee5\:76f4\:89c2\:5730\:770b\:51fa\:8fd9\:4e9b\:586b\:5145\:7b56\:7565\:7684\:6548\:679c\:548c\:6587\:6863\:4e2d\:6240\:63cf\:8ff0\:7684\:4e00\:81f4\:3002\n\:552f\:4e00\:503c\:5f97\:4e00\:63d0\:7684\:662f",
+        StyleBox[
+         "\[OpenCurlyDoubleQuote]Reflected\[CloseCurlyDoubleQuote]",
+         FontFamily -> "Source Sans Pro"
+        ],
+        "\:548c",
+        StyleBox[
+         "\[OpenCurlyDoubleQuote]Reversed\[CloseCurlyDoubleQuote]",
+         FontFamily -> "Source Sans Pro"
+        ],
+        "\:7684\:533a\:522b\:ff1a\n",
+        StyleBox[
+         "\[OpenCurlyDoubleQuote]Reflected\[CloseCurlyDoubleQuote]",
+         FontFamily -> "Source Sans Pro"
+        ],
+        "\:53cd\:5c04\:65f6\:4e0d\:91cd\:590d\:8fb9\:754c\:4e0a\:7684\:50cf\:7d20\:ff0c\:800c",
+        StyleBox[
+         "\[OpenCurlyDoubleQuote]Reversed\[CloseCurlyDoubleQuote]",
+         FontFamily -> "Source Sans Pro"
+        ],
+        "\:5219\:91cd\:590d\:8fb9\:754c\:4e0a\:7684\:50cf\:7d20\:3002"
+       }
+      ],
+      "Text",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10000.},
+      FontFamily -> "\:5b8b\:4f53"
+     ]
+    },
+    Open
+   ]
+  ],
+  Cell[
+   CellGroupData[
+    {
+     Cell[
+      TextData[
+       {
+        "\:5bf9\:4e8e",
+        ButtonBox[
+         "\:6ee4\:6ce2",
+         BaseStyle -> "Hyperlink",
+         ButtonData -> {
+          URL[
+           "https://reference.wolfram.com/language/ref/ImageFilter.html"
+          ],
+          None
+         },
+         ButtonNote -> "https://reference.wolfram.com/language/ref/ImageFilter.html"
+        ],
+        "\:3001",
+        ButtonBox[
+         "\:5377\:79ef",
+         BaseStyle -> "Hyperlink",
+         ButtonData -> {
+          URL[
+           "https://reference.wolfram.com/language/ref/ImageConvolve.html"
+          ],
+          None
+         },
+         ButtonNote -> "https://reference.wolfram.com/language/ref/ImageConvolve.html"
+        ],
+        "\:3001",
+        ButtonBox[
+         "\:76f8\:5173",
+         BaseStyle -> "Hyperlink",
+         ButtonData -> {
+          URL[
+           "https://reference.wolfram.com/language/ref/ImageCorrelate.html"
+          ],
+          None
+         },
+         ButtonNote -> "https://reference.wolfram.com/language/ref/ImageCorrelate.html"
+        ],
+        "\:7b49\:56fe\:50cf\:64cd\:4f5c\:ff0c\:5176\:6240\:4f7f\:7528\:7684\:8fb9\:754c\:586b\:5145\:7b56\:7565\:4e5f\:53ef\:4ee5\:901a\:8fc7\:4e0b\:9762\:7684\:624b\:6bb5\:8fdb\:884c\:6d4b\:8bd5\:63a8\:65ad"
+       }
+      ],
+      "Text",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10001.},
+      FontFamily -> "\:5b8b\:4f53"
+     ],
+     Cell[
+      BoxData[
+       RowBox[
+        {
+         "With",
+         "[",
+         RowBox[
+          {
+           RowBox[
+            {
+             "{",
+             RowBox[
+              {
+               "masks",
+               "=",
+               RowBox[
+                {
+                 "{",
+                 "\[IndentingNewLine]",
+                 RowBox[
+                  {
+                   RowBox[
+                    {
+                     "SparseArray",
+                     "[",
+                     RowBox[
+                      {
+                       RowBox[
+                        {
+                         "{",
+                         RowBox[
+                          {
+                           RowBox[{"{", RowBox[{"1", ",", "1"}], "}"}],
+                           "\[Rule]",
+                           "1"
+                          }
+                         ],
+                         "}"
+                        }
+                       ],
+                       ",",
+                       RowBox[{"{", RowBox[{"3", ",", "3"}], "}"}]
+                      }
+                     ],
+                     "]"
+                    }
+                   ],
+                   ",",
+                   "\[IndentingNewLine]",
+                   RowBox[
+                    {
+                     "SparseArray",
+                     "[",
+                     RowBox[
+                      {
+                       RowBox[
+                        {
+                         "{",
+                         RowBox[
+                          {
+                           RowBox[{"{", RowBox[{"2", ",", "1"}], "}"}],
+                           "\[Rule]",
+                           "1"
+                          }
+                         ],
+                         "}"
+                        }
+                       ],
+                       ",",
+                       RowBox[{"{", RowBox[{"3", ",", "3"}], "}"}]
+                      }
+                     ],
+                     "]"
+                    }
+                   ],
+                   ",",
+                   "\[IndentingNewLine]",
+                   RowBox[
+                    {
+                     "SparseArray",
+                     "[",
+                     RowBox[
+                      {
+                       RowBox[
+                        {
+                         "{",
+                         RowBox[
+                          {
+                           RowBox[{"{", RowBox[{"3", ",", "1"}], "}"}],
+                           "\[Rule]",
+                           "1"
+                          }
+                         ],
+                         "}"
+                        }
+                       ],
+                       ",",
+                       RowBox[{"{", RowBox[{"5", ",", "5"}], "}"}]
+                      }
+                     ],
+                     "]"
+                    }
+                   ]
+                  }
+                 ],
+                 "\[IndentingNewLine]",
+                 "}"
+                }
+               ]
+              }
+             ],
+             "}"
+            }
+           ],
+           ",",
+           "\[IndentingNewLine]",
+           RowBox[
+            {
+             "Labeled",
+             "[",
+             "\[IndentingNewLine]",
+             RowBox[
+              {
+               RowBox[
+                {
+                 "TableForm",
+                 "[",
+                 "\[IndentingNewLine]",
+                 RowBox[
+                  {
+                   RowBox[
+                    {
+                     RowBox[
+                      {
+                       "Table",
+                       "[",
+                       RowBox[
+                        {
+                         RowBox[
+                          {
+                           "ImageCorrelate",
+                           "[",
+                           RowBox[
+                            {
+                             "img",
+                             ",",
+                             "mask",
+                             ",",
+                             RowBox[{"Padding", "\[Rule]", "pad"}]
+                            }
+                           ],
+                           "]"
+                          }
+                         ],
+                         ",",
+                         RowBox[{"{", RowBox[{"mask", ",", "masks"}], "}"}],
+                         ",",
+                         RowBox[{"{", RowBox[{"pad", ",", "paddings"}], "}"}]
+                        }
+                       ],
+                       "]"
+                      }
+                     ],
+                     "\[IndentingNewLine]",
+                     "~",
+                     "Append",
+                     "~",
+                     RowBox[
+                      {
+                       "Table",
+                       "[",
+                       RowBox[
+                        {
+                         RowBox[
+                          {
+                           "ImagePad",
+                           "[",
+                           RowBox[{"img", ",", "2", ",", "pad"}],
+                           "]"
+                          }
+                         ],
+                         ",",
+                         RowBox[{"{", RowBox[{"pad", ",", "paddings"}], "}"}]
+                        }
+                       ],
+                       "]"
+                      }
+                     ]
+                    }
+                   ],
+                   ",",
+                   "\[IndentingNewLine]",
+                   RowBox[
+                    {
+                     "TableHeadings",
+                     "\[Rule]",
+                     RowBox[
+                      {
+                       "{",
+                       RowBox[
+                        {
+                         RowBox[
+                          {
+                           RowBox[
+                            {
+                             "(",
+                             RowBox[
+                              {RowBox[{"MatrixForm", "@*", "Normal"}], "/@", "masks"}
+                             ],
+                             ")"
+                            }
+                           ],
+                           "~",
+                           "Append",
+                           "~",
+                           "\"\:586b\:5145\:56fe\:50cf\""
+                          }
+                         ],
+                         ",",
+                         "paddings"
+                        }
+                       ],
+                       "}"
+                      }
+                     ]
+                    }
+                   ],
+                   ",",
+                   "\[IndentingNewLine]",
+                   RowBox[{"TableAlignments", "\[Rule]", "Center"}]
+                  }
+                 ],
+                 "\[IndentingNewLine]",
+                 "]"
+                }
+               ],
+               ",",
+               "\[IndentingNewLine]",
+               "\"\:88682 \:56fe\:50cf\:76f8\:5173\:7684\:8fb9\:754c\:586b\:5145\:7b56\:7565\:5bf9\:6bd4\"",
+               ",",
+               "Top"
+              }
+             ],
+             "\[IndentingNewLine]",
+             "]"
+            }
+           ]
+          }
+         ],
+         "\[IndentingNewLine]",
+         "]"
+        }
+       ]
+      ],
+      "Input",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10001.},
+      CellLabel -> "In[4]:="
+     ],
+     Cell[
+      TextData[
+       {
+        "\:88682\:7b2c\:4e00\:884c\:6240\:7528\:7684\:6a21\:7248\:4e0e\:56fe\:50cf\:8fdb\:884c\:76f8\:5173\:8fd0\:7b97\:5b9e\:9645\:4e0a\:76f8\:5f53\:4e8e\:5c06\:6574\:4e2a\:56fe\:50cf\:5de6\:79fb\:5e76\:4e0b\:79fb\:4e86\:4e00\:4e2a\:50cf\:7d20\:ff0c\:800c\:7b2c\:4e8c\:884c\:5219\:76f8\:5f53\:4e8e\:5de6\:79fb\:4e00\:4e2a\:50cf\:7d20\:3002\:5355\:770b\:8fd9\:4e24\:79cd\:60c5\:51b5\:5e76\:4e0d\:80fd\:76f4\:89c2\:5730\:533a\:5206",
+        StyleBox[
+         "\[OpenCurlyDoubleQuote]Fixed\[CloseCurlyDoubleQuote]",
+         FontFamily -> "Source Sans Pro"
+        ],
+        "\:548c",
+        StyleBox[
+         "\[OpenCurlyDoubleQuote]Reversed\[CloseCurlyDoubleQuote]",
+         FontFamily -> "Source Sans Pro"
+        ],
+        "\:7684\:4f5c\:7528\:ff0c\:56e0\:4e3a\:5728\:4e00\:4e2a\:50cf\:7d20\:7684\:8303\:56f4\:5185\:ff0c\:4e24\:8005\:786e\:5b9e\:662f\:76f8\:540c\:7684\:3002\:56e0\:6b64\:7b2c\:4e09\:884c\:4e3e\:4e86\:4e00\:4e2a\:5de6\:79fb\:4e24\:4e2a\:50cf\:7d20\:7684\:4f8b\:5b50\:4ee5\:793a\:533a\:522b\:3002\n\:5c06\:7b2c\:56db\:884c\:7684\[OpenCurlyDoubleQuote]\:586b\:5145\:56fe\:50cf\[CloseCurlyDoubleQuote]\:4e0e\:524d\:9762\:7684\:7ed3\:679c\:8fdb\:884c\:5bf9\:7167\:ff0c\:5f88\:5bb9\:6613\:53d1\:73b0\:65e0\:8bba\:4f7f\:7528\:54ea\:79cd\:51fd\:6570\:4ee5\:53ca\:586b\:5145\:65b9\:5f0f\:ff0c\:90fd\:76f8\:5f53\:4e8e\:5728\:4e00\:4e2a\:4f7f\:7528\:5bf9\:5e94\:65b9\:5f0f\:586b\:5145\:7684\:5145\:5206\:5927\:7684\:586b\:5145\:56fe\:50cf\:4e0a\:8fd0\:7b97\:5f97\:5230\:7684\:7ed3\:679c\:3002"
+       }
+      ],
+      "Text",
+      CellGroupingRules -> {"GroupTogetherGrouping", 10001.},
+      FontFamily -> "\:5b8b\:4f53"
+     ]
+    },
+    Open
+   ]
+  ]
+ },
+ CellContext -> Notebook,
+ StyleDefinitions -> FrontEnd`FileName[
+  {"Report"},
+  "StandardReport.nb",
+  CharacterEncoding -> "UTF-8"
+ ]
+]
